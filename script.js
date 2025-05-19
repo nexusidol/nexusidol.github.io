@@ -219,6 +219,16 @@ function preloadMemberImages() {
   Object.values(memberData).forEach(member => {
     const img = new Image();
     img.src = member.image;
+    img.onload = function() {
+      // 이미지가 완전히 로드되었을 때 멤버 카드의 이미지를 업데이트
+      const memberCards = document.querySelectorAll(`.member-card[data-member="${member.engName.toLowerCase()}"] img`);
+      memberCards.forEach(card => {
+        // Element를 HTMLImageElement로 안전하게 캐스팅
+        if(card instanceof HTMLImageElement) {
+          card.src = member.image;
+        }
+      });
+    };
   });
 }
 
