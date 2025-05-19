@@ -353,6 +353,46 @@ body {
 .footer-copyright {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* 배포 정보 스타일 */
+.footer-distribution {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.distribution-text {
+  opacity: 0.8;
+}
+
+.distribution-link {
+  color: var(--leon-color);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 0 2px;
+  transition: var(--transition);
+}
+
+.distribution-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--leon-color), var(--hamin-color), var(--cyan-color), var(--juno-color));
+  transition: var(--transition);
+}
+
+.distribution-link:hover {
+  color: white;
+}
+
+.distribution-link:hover::after {
+  width: 100%;
 }
 
 /* 모달 */
@@ -693,5 +733,10 @@ body {
 
   .profile-position-tag {
     font-size: 0.8rem;
+  }
+
+  .footer-distribution {
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 }
